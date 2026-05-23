@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { type Artwork, type Era, eras } from "@/data/artworks";
 import { SlidersHorizontal } from "lucide-react";
+import { useLanguage } from "@/lib/translations";
 
 interface GallerySectionProps {
   artworks: Artwork[];
@@ -13,6 +14,7 @@ interface GallerySectionProps {
 
 export function GallerySection({ artworks, onArtworkClick }: GallerySectionProps) {
   const [selectedEra, setSelectedEra] = useState<Era | "all">("all");
+  const { t } = useLanguage();
 
   const filteredArtworks = selectedEra === "all" 
     ? artworks 
@@ -29,7 +31,7 @@ export function GallerySection({ artworks, onArtworkClick }: GallerySectionProps
         className="text-center mb-12"
       >
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-8">
-          GALLERY
+          {t.gallery.title}
         </h2>
 
         {/* Era Filter */}
@@ -42,7 +44,7 @@ export function GallerySection({ artworks, onArtworkClick }: GallerySectionProps
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            All
+            {t.gallery.all}
           </button>
           {eras.map((era) => (
             <button
@@ -91,7 +93,7 @@ export function GallerySection({ artworks, onArtworkClick }: GallerySectionProps
             animate={{ opacity: 1 }}
             className="text-center text-muted-foreground py-20"
           >
-            No artworks found for this era.
+            {t.gallery.noArtworks}
           </motion.p>
         )}
       </div>
@@ -107,6 +109,7 @@ interface ArtworkCardProps {
 
 function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
   const [imageError, setImageError] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <motion.article
@@ -136,7 +139,7 @@ function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-muted">
             <span className="text-muted-foreground text-xs text-center px-4">
-              Image not found
+              {t.detail.imageNotFound}
             </span>
           </div>
         )}

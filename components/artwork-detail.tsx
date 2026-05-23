@@ -5,6 +5,7 @@ import Image from "next/image";
 import { X, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { type Artwork } from "@/data/artworks";
 import { useState } from "react";
+import { useLanguage } from "@/lib/translations";
 
 interface ArtworkDetailProps {
   artwork: Artwork | null;
@@ -13,6 +14,7 @@ interface ArtworkDetailProps {
   onPrevious?: () => void;
   hasNext?: boolean;
   hasPrevious?: boolean;
+  onViewInGallery?: () => void;
 }
 
 export function ArtworkDetail({ 
@@ -21,9 +23,18 @@ export function ArtworkDetail({
   onNext, 
   onPrevious,
   hasNext = false,
-  hasPrevious = false
+  hasPrevious = false,
+  onViewInGallery
 }: ArtworkDetailProps) {
   const [imageError, setImageError] = useState(false);
+  const { t } = useLanguage();
+
+  // Handle "View in Gallery" click
+  const handleViewInGallery = () => {
+    if (onViewInGallery) {
+      onViewInGallery();
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -35,13 +46,14 @@ export function ArtworkDetail({
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm"
         >
-          {/* Close button */}
+          {/* Close button - Return to gallery */}
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
             onClick={onClose}
             className="absolute top-4 left-4 md:top-6 md:left-6 z-50 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-primary/10 text-foreground hover:bg-primary/20 transition-colors"
+            aria-label={t.nav.gallery}
           >
             <X className="w-5 h-5 md:w-6 md:h-6" />
           </motion.button>
@@ -54,6 +66,7 @@ export function ArtworkDetail({
               transition={{ delay: 0.3 }}
               onClick={onPrevious}
               className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-primary/10 text-foreground hover:bg-primary/20 transition-colors hidden md:flex"
+              aria-label={t.detail.previous}
             >
               <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
             </motion.button>
@@ -66,6 +79,7 @@ export function ArtworkDetail({
               transition={{ delay: 0.3 }}
               onClick={onNext}
               className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-primary/10 text-foreground hover:bg-primary/20 transition-colors hidden md:flex"
+              aria-label={t.detail.next}
             >
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
             </motion.button>
@@ -94,7 +108,7 @@ export function ArtworkDetail({
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center bg-muted">
-                      <span className="text-muted-foreground">Image not found</span>
+                      <span className="text-muted-foreground">{t.detail.imageNotFound}</span>
                     </div>
                   )}
                 </div>
@@ -135,12 +149,12 @@ export function ArtworkDetail({
                   transition={{ delay: 0.5 }}
                   className="grid grid-cols-2 gap-4 mb-8"
                 >
-                  <MetadataItem label="When" value={artwork.year.toString()} />
-                  <MetadataItem label="Artist" value={artwork.artist} />
-                  <MetadataItem label="Medium" value={artwork.materials} />
-                  <MetadataItem label="Place" value={artwork.location} />
-                  <MetadataItem label="Period" value={artwork.period} />
-                  <MetadataItem label="Current Status" value={artwork.currentStatus} />
+                  <MetadataItem label={t.detail.when} value={artwork.year.toString()} />
+                  <MetadataItem label={t.detail.artist} value={artwork.artist} />
+                  <MetadataItem label={t.detail.medium} value={artwork.materials} />
+                  <MetadataItem label={t.detail.place} value={artwork.location} />
+                  <MetadataItem label={t.detail.period} value={artwork.period} />
+                  <MetadataItem label={t.detail.currentStatus} value={artwork.currentStatus} />
                 </motion.div>
 
                 {/* Description */}
@@ -155,21 +169,22 @@ export function ArtworkDetail({
                   </p>
                   {artwork.description.length > 200 && (
                     <button className="text-primary text-sm font-medium mt-2 hover:underline">
-                      READ MORE
+                      {t.detail.readMore}
                     </button>
                   )}
                 </motion.div>
 
-                {/* CTA Button */}
+                {/* CTA Button - Now functional */}
                 <motion.button
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={handleViewInGallery}
                   className="self-start px-8 py-4 bg-primary text-primary-foreground rounded-full text-sm tracking-wide uppercase transition-all hover:bg-primary/90 shadow-lg shadow-primary/20"
                 >
-                  View in Gallery
+                  {t.detail.viewInGallery}
                 </motion.button>
 
                 {/* Mobile navigation */}
@@ -179,7 +194,7 @@ export function ArtworkDetail({
                       onClick={onPrevious}
                       className="flex-1 py-3 px-6 border border-border rounded-full text-foreground text-sm flex items-center justify-center gap-2 hover:bg-muted transition-colors"
                     >
-                      <ChevronLeft className="w-4 h-4" /> Previous
+                      <ChevronLeft className="w-4 h-4" /> {t.detail.previous}
                     </button>
                   )}
                   {hasNext && (
@@ -187,7 +202,7 @@ export function ArtworkDetail({
                       onClick={onNext}
                       className="flex-1 py-3 px-6 border border-border rounded-full text-foreground text-sm flex items-center justify-center gap-2 hover:bg-muted transition-colors"
                     >
-                      Next <ChevronRight className="w-4 h-4" />
+                      {t.detail.next} <ChevronRight className="w-4 h-4" />
                     </button>
                   )}
                 </div>

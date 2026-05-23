@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { LanguageProvider } from "@/lib/translations";
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/sections/hero-section";
 import { FeaturedArtworks } from "@/components/sections/featured-artworks";
@@ -74,48 +75,63 @@ export default function HomePage() {
   const hasPrevious = currentIndex > 0;
 
   // Scroll to gallery section
-  const scrollToGallery = () => {
+  const scrollToGallery = useCallback(() => {
     const gallerySection = document.getElementById("gallery");
     if (gallerySection) {
       gallerySection.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  }, []);
+
+  // Handle "View in Gallery" - close modal and scroll to gallery
+  const handleViewInGallery = useCallback(() => {
+    // Close the modal first
+    setSelectedArtwork(null);
+    document.body.style.overflow = "";
+    
+    // Small delay to allow modal to close, then scroll to gallery
+    setTimeout(() => {
+      scrollToGallery();
+    }, 100);
+  }, [scrollToGallery]);
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Navigation */}
-      <Navigation />
+    <LanguageProvider>
+      <main className="min-h-screen bg-background">
+        {/* Navigation */}
+        <Navigation />
 
-      {/* Hero Section */}
-      <section id="home">
-        <HeroSection onExploreClick={scrollToGallery} />
-      </section>
+        {/* Hero Section */}
+        <section id="home">
+          <HeroSection onExploreClick={scrollToGallery} />
+        </section>
 
-      {/* Featured Artworks - Horizontal Scroll */}
-      <FeaturedArtworks artworks={artworks} onArtworkClick={handleArtworkClick} />
+        {/* Featured Artworks - Horizontal Scroll */}
+        <FeaturedArtworks artworks={artworks} onArtworkClick={handleArtworkClick} />
 
-      {/* Main Gallery */}
-      <section id="gallery">
-        <GallerySection artworks={artworks} onArtworkClick={handleArtworkClick} />
-      </section>
+        {/* Main Gallery */}
+        <section id="gallery">
+          <GallerySection artworks={artworks} onArtworkClick={handleArtworkClick} />
+        </section>
 
-      {/* About Section */}
-      <section id="about">
-        <AboutSection />
-      </section>
+        {/* About Section */}
+        <section id="about">
+          <AboutSection />
+        </section>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
 
-      {/* Artwork Detail Modal */}
-      <ArtworkDetail
-        artwork={selectedArtwork}
-        onClose={handleCloseDetail}
-        onNext={handleNextArtwork}
-        onPrevious={handlePreviousArtwork}
-        hasNext={hasNext}
-        hasPrevious={hasPrevious}
-      />
-    </main>
+        {/* Artwork Detail Modal */}
+        <ArtworkDetail
+          artwork={selectedArtwork}
+          onClose={handleCloseDetail}
+          onNext={handleNextArtwork}
+          onPrevious={handlePreviousArtwork}
+          hasNext={hasNext}
+          hasPrevious={hasPrevious}
+          onViewInGallery={handleViewInGallery}
+        />
+      </main>
+    </LanguageProvider>
   );
 }

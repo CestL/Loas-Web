@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Instagram, Twitter, Mail } from "lucide-react";
+import { useLanguage } from "@/lib/translations";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="py-12 px-6 md:px-8 border-t border-border">
       <div className="max-w-6xl mx-auto">
@@ -59,7 +62,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm text-muted-foreground"
           >
-            © 2024 LoArt. All rights reserved.
+            {t.footer.rights}
           </motion.p>
         </div>
       </div>

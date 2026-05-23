@@ -14,9 +14,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "LoArt | Virtual Museum for Classical Art",
+  title: "LoArt | Museo Virtual de Arte Clásico",
   description:
-    "Experience an immersive virtual museum showcasing masterpieces from the 15th to 19th centuries. Explore classical paintings in a premium digital gallery experience.",
+    "Experimenta un museo virtual inmersivo con obras maestras del siglo XV al XIX. Explora pinturas clásicas en una experiencia de galería digital premium.",
   keywords: [
     "art gallery",
     "virtual museum",
@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="es" className="bg-background">
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
       >

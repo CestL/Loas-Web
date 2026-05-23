@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/lib/translations";
 
 interface NavigationProps {
   currentSection?: "home" | "gallery" | "about";
@@ -11,6 +12,7 @@ interface NavigationProps {
 
 export function Navigation({ currentSection = "home" }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   return (
     <>
@@ -31,7 +33,7 @@ export function Navigation({ currentSection = "home" }: NavigationProps) {
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            HOME
+            {t.nav.home}
           </Link>
 
           {/* Center - Logo */}
@@ -41,17 +43,28 @@ export function Navigation({ currentSection = "home" }: NavigationProps) {
             </div>
           </Link>
 
-          {/* Right - Gallery Link (Desktop) */}
-          <Link
-            href="#gallery"
-            className={`hidden md:block font-serif text-sm md:text-base tracking-widest transition-colors ${
-              currentSection === "gallery"
-                ? "text-foreground"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            GALLERY
-          </Link>
+          {/* Right - Gallery Link + Language Switcher (Desktop) */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="#gallery"
+              className={`font-serif text-sm md:text-base tracking-widest transition-colors ${
+                currentSection === "gallery"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t.nav.gallery}
+            </Link>
+
+            {/* Subtle Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="text-xs tracking-wider text-muted-foreground/70 hover:text-muted-foreground transition-colors uppercase"
+              aria-label={language === "es" ? "Switch to English" : "Cambiar a Español"}
+            >
+              {language === "es" ? "EN" : "ES"}
+            </button>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -85,22 +98,30 @@ export function Navigation({ currentSection = "home" }: NavigationProps) {
                 onClick={() => setIsMenuOpen(false)}
                 className="font-serif text-2xl tracking-widest text-foreground hover:text-primary transition-colors"
               >
-                HOME
+                {t.nav.home}
               </Link>
               <Link
                 href="#gallery"
                 onClick={() => setIsMenuOpen(false)}
                 className="font-serif text-2xl tracking-widest text-foreground hover:text-primary transition-colors"
               >
-                GALLERY
+                {t.nav.gallery}
               </Link>
               <Link
                 href="#about"
                 onClick={() => setIsMenuOpen(false)}
                 className="font-serif text-2xl tracking-widest text-foreground hover:text-primary transition-colors"
               >
-                ABOUT
+                {t.nav.about}
               </Link>
+
+              {/* Mobile Language Switcher */}
+              <button
+                onClick={toggleLanguage}
+                className="mt-4 text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {language === "es" ? "English" : "Español"}
+              </button>
             </nav>
           </div>
         </motion.div>

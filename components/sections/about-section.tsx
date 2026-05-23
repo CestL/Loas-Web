@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/translations";
 
 export function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-24 px-6 md:px-8">
       <div className="max-w-4xl mx-auto">
@@ -15,7 +18,7 @@ export function AboutSection() {
         >
           {/* Section Title */}
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight mb-6">
-            About the Gallery
+            {t.about.title}
           </h2>
 
           {/* Decorative Line */}
@@ -23,16 +26,11 @@ export function AboutSection() {
 
           {/* Description */}
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 text-pretty">
-            LoArt is a virtual museum experience dedicated to showcasing the most 
-            influential masterpieces from the 15th to 19th centuries. Our curated 
-            collection brings together works from the Dutch Golden Age, Romanticism, 
-            Impressionism, and beyond.
+            {t.about.description1}
           </p>
 
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 text-pretty">
-            Experience art like never before with our immersive digital gallery. 
-            Each painting tells a story, and we invite you to discover the rich 
-            history and emotion behind every brushstroke.
+            {t.about.description2}
           </p>
 
           {/* Stats */}
@@ -46,19 +44,19 @@ export function AboutSection() {
             <div>
               <span className="font-serif text-3xl md:text-4xl text-foreground">400+</span>
               <p className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
-                Years of Art
+                {t.about.yearsOfArt}
               </p>
             </div>
             <div>
               <span className="font-serif text-3xl md:text-4xl text-foreground">50+</span>
               <p className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
-                Masterpieces
+                {t.about.masterpieces}
               </p>
             </div>
             <div>
               <span className="font-serif text-3xl md:text-4xl text-foreground">30+</span>
               <p className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
-                Artists
+                {t.about.artists}
               </p>
             </div>
           </motion.div>

@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { type Artwork } from "@/data/artworks";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/lib/translations";
 
 interface FeaturedArtworksProps {
   artworks: Artwork[];
@@ -16,6 +17,7 @@ export function FeaturedArtworks({ artworks, onArtworkClick }: FeaturedArtworksP
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const { t } = useLanguage();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -57,10 +59,10 @@ export function FeaturedArtworks({ artworks, onArtworkClick }: FeaturedArtworksP
         className="text-center mb-12 px-6"
       >
         <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
-          Featured Collection
+          {t.featured.label}
         </span>
         <h2 className="font-serif text-3xl md:text-4xl text-foreground">
-          Masterpieces
+          {t.featured.title}
         </h2>
       </motion.div>
 
@@ -114,6 +116,7 @@ interface FeaturedCardProps {
 
 function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
   const [imageError, setImageError] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <motion.article
@@ -148,7 +151,7 @@ function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center bg-muted">
-                <span className="text-muted-foreground text-sm">Image not found</span>
+                <span className="text-muted-foreground text-sm">{t.detail.imageNotFound}</span>
               </div>
             )}
 

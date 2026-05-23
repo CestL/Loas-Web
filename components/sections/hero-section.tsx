@@ -2,12 +2,15 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/lib/translations";
 
 interface HeroSectionProps {
   onExploreClick: () => void;
 }
 
 export function HeroSection({ onExploreClick }: HeroSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
       {/* Background decorative elements */}
@@ -61,7 +64,7 @@ export function HeroSection({ onExploreClick }: HeroSectionProps) {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           className="text-muted-foreground text-base md:text-lg mb-2 tracking-wide"
         >
-          Virtual Museum For
+          {t.hero.subtitle1}
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +72,7 @@ export function HeroSection({ onExploreClick }: HeroSectionProps) {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
           className="text-muted-foreground text-base md:text-lg mb-12 tracking-wide"
         >
-          15s - 19s Classical Art Paintings
+          {t.hero.subtitle2}
         </motion.p>
 
         {/* CTA Button */}
@@ -82,7 +85,7 @@ export function HeroSection({ onExploreClick }: HeroSectionProps) {
           onClick={onExploreClick}
           className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-sans text-sm md:text-base tracking-wide uppercase transition-all hover:bg-primary/90 shadow-lg shadow-primary/20"
         >
-          Explore Gallery
+          {t.hero.cta}
         </motion.button>
       </div>
 
@@ -98,7 +101,7 @@ export function HeroSection({ onExploreClick }: HeroSectionProps) {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center text-muted-foreground"
         >
-          <span className="text-xs tracking-widest uppercase mb-2">Scroll</span>
+          <span className="text-xs tracking-widest uppercase mb-2">{t.hero.scroll}</span>
           <ChevronDown className="w-5 h-5" />
         </motion.div>
       </motion.div>
