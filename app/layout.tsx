@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "LoArt | Museo Virtual de Arte",
   description:
-    "Experimenta un museo virtual inmersivo con obras maestras del siglo XV al XIX. Explora pinturas clásicas en una experiencia de galería digital premium.",
+    "Experimenta un museo virtual inmersivo con obras maestras. Explora pinturas en una experiencia de galería digital premium.",
   keywords: [
     "art gallery",
     "virtual museum",
