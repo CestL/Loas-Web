@@ -67,7 +67,7 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       subtitle1: "Museo Virtual de",
-      subtitle2: "Pintura Clásica del Siglo XV al XIX",
+      subtitle2: "Pintura Clásica de Ligia",
       cta: "Explorar Galería",
       scroll: "Deslizar",
     },
@@ -96,15 +96,15 @@ const translations: Record<Language, Translations> = {
     about: {
       title: "Acerca de la Galería",
       description1:
-        "LoArt es una experiencia de museo virtual dedicada a exhibir las obras maestras más influyentes del siglo XV al XIX. Nuestra colección curada reúne obras del Siglo de Oro Holandés, el Romanticismo, el Impresionismo y más allá.",
+        "LoArt es una galería virtual creada para compartir el arte y la sensibilidad de una vida entera plasmada en cada cuadro. Cada obra refleja recuerdos, emociones y momentos únicos, invitando a descubrir la belleza de una colección profundamente personal y auténtica.",
       description2:
-        "Experimenta el arte como nunca antes con nuestra galería digital inmersiva. Cada pintura cuenta una historia, y te invitamos a descubrir la rica historia y emoción detrás de cada pincelada.",
+        "Descubre una experiencia artística cercana e inspiradora a través de esta galería digital. Cada pintura transmite una historia, una emoción y una mirada especial del mundo, invitándote a conectar con los detalles, colores y sentimientos detrás de cada pincelada..",
       yearsOfArt: "Años de Arte",
       masterpieces: "Obras Maestras",
       artists: "Artistas",
     },
     footer: {
-      rights: "© 2024 LoArt. Todos los derechos reservados.",
+      rights: "© 2026 LoArt. Todos los derechos reservados.",
     },
   },
   en: {
@@ -115,7 +115,7 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       subtitle1: "Virtual Museum For",
-      subtitle2: "15s - 19s Classical Art Paintings",
+      subtitle2: "Ligia Classical Art Paintings",
       cta: "Explore Gallery",
       scroll: "Scroll",
     },
@@ -144,15 +144,15 @@ const translations: Record<Language, Translations> = {
     about: {
       title: "About the Gallery",
       description1:
-        "LoArt is a virtual museum experience dedicated to showcasing the most influential masterpieces from the 15th to 19th centuries. Our curated collection brings together works from the Dutch Golden Age, Romanticism, Impressionism, and beyond.",
+        "LoArt is a virtual gallery created to share the art and sensitivity of a lifetime captured in every painting. Each piece reflects memories, emotions, and meaningful moments, inviting you to discover the beauty of a deeply personal and authentic collection.",
       description2:
-        "Experience art like never before with our immersive digital gallery. Each painting tells a story, and we invite you to discover the rich history and emotion behind every brushstroke.",
+        "Discover an intimate and inspiring artistic experience through this digital gallery. Every painting tells a story, conveys emotion, and offers a unique view of the world, inviting you to connect with the details, colors, and feelings behind every brushstroke.",
       yearsOfArt: "Years of Art",
       masterpieces: "Masterpieces",
       artists: "Artists",
     },
     footer: {
-      rights: "© 2024 LoArt. All rights reserved.",
+      rights: "© 2026 LoArt. All rights reserved.",
     },
   },
 };
