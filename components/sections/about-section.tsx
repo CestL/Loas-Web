@@ -42,13 +42,13 @@ export function AboutSection() {
             className="grid grid-cols-3 gap-8"
           >
             <div>
-              <span className="font-serif text-3xl md:text-4xl text-foreground">5+</span>
+              <span className="font-serif text-3xl md:text-4xl text-foreground">8+</span>
               <p className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
                 {t.about.yearsOfArt}
               </p>
             </div>
             <div>
-              <span className="font-serif text-3xl md:text-4xl text-foreground">30+</span>
+              <span className="font-serif text-3xl md:text-4xl text-foreground">50+</span>
               <p className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
                 {t.about.masterpieces}
               </p>
