@@ -29,7 +29,7 @@ export interface Artwork {
   currentStatus: string;
   description: string;
   image: string;
-  era: "1600s" | "1700s" | "1800s" | "1900s";
+  era: "Asiático" | "Floral" | "Retrato" | "Valdivia" | "Talleres";
 }
 
 /* ====================================================
@@ -194,6 +194,22 @@ export const artworks: Artwork[] = [
     description: "A self-portrait where the artist's face is largely obscured by a hovering green apple, this painting explores the conflict between the visible and the hidden.",
     image: "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?w=800&h=1000&fit=crop",
     era: "1900s"
+  },
+
+  //Example//
+  
+  {
+    id: "night-watch",
+    title: "The Night Watch",
+    artist: "Rembrandt van Rijn",
+    year: 1642,
+    location: "Amsterdam, Netherlands",
+    materials: "Oil on Canvas",
+    period: "Dutch Golden Age",
+    currentStatus: "Rijksmuseum, Amsterdam",
+    description: "Rembrandt's masterpiece depicts the militia company of Captain Frans Banninck Cocq, notable for its effective use of light and shadow and the perception of motion in what would have traditionally been a static portrait.",
+    image: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=800&h=1000&fit=crop",
+    era: "1600s"
   },
   
   /* ====================================================
