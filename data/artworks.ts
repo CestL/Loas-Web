@@ -197,9 +197,9 @@ export const artworks: Artwork[] = [
   },
 
   //Example//
-  
+
   {
-    id: "night-watch",
+    id: "night-sss",
     title: "The Night Watch",
     artist: "Rembrandt van Rijn",
     year: 1642,
