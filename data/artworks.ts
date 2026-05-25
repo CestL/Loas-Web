@@ -287,14 +287,14 @@ export const artworks: Artwork[] = [
   },
 
   {
-    id: "Karate",
-    title: "Karate",
+    id: "Taekwondo",
+    title: "Taekwondo",
     artist: "LOA",
     year: 2025,
     location: "Valdivia, Chile",
     materials: "Acrilico sobre Madera",
     description: "Esta pintura acrílica sobre madera presenta una composición tripartita que captura diferentes facetas del arte marcial, La figura frontal, de pie y con los brazos colgando, transmite calma, autoridad o meditación. El fondo oscuro y texturizado crea un efecto de halo o energía concentrada, destacando su importancia dentro de la triada. Es el eje compositivo y simbólico.",
-    image: "/artworks/Karate.jpg",
+    image: "/artworks/Taekwondo.jpg",
     era: "Retrato"
   },
 

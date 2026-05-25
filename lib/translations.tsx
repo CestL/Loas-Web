@@ -112,7 +112,7 @@ const translations: Record<Language, Translations> = {
       description2:
         "Descubre una experiencia artística cercana e inspiradora a través de esta galería digital. Cada pintura transmite una historia, una emoción y una mirada especial del mundo, invitándote a conectar con los detalles, colores y sentimientos detrás de cada pincelada..",
       yearsOfArt: "Años de Arte",
-      masterpieces: "Obras Maestras",
+      masterpieces: "Obras",
       artists: "Artistas",
     },
     footer: {
@@ -168,7 +168,7 @@ const translations: Record<Language, Translations> = {
       description2:
         "Discover an intimate and inspiring artistic experience through this digital gallery. Every painting tells a story, conveys emotion, and offers a unique view of the world, inviting you to connect with the details, colors, and feelings behind every brushstroke.",
       yearsOfArt: "Years of Art",
-      masterpieces: "Masterpieces",
+      masterpieces: "Works",
       artists: "Artists",
     },
     footer: {
