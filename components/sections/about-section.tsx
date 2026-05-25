@@ -54,7 +54,7 @@ export function AboutSection() {
               </p>
             </div>
             <div>
-              <span className="font-serif text-3xl md:text-4xl text-foreground">30+</span>
+              <span className="font-serif text-3xl md:text-4xl text-foreground">8+</span>
               <p className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
                 {t.about.artists}
               </p>

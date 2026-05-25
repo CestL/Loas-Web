@@ -56,7 +56,7 @@ export function GallerySection({ artworks, onArtworkClick }: GallerySectionProps
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {era}
+              {t.gallery.eras[era]}
             </button>
           ))}
           <button className="p-2 ml-2 text-muted-foreground hover:text-foreground transition-colors">
@@ -109,7 +109,8 @@ interface ArtworkCardProps {
 
 function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
   const [imageError, setImageError] = useState(false);
-  const { t } = useLanguage();
+  const { t, getArtwork } = useLanguage();
+  const localized = getArtwork(artwork);
 
   return (
     <motion.article
@@ -130,7 +131,7 @@ function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
         {!imageError ? (
           <Image
             src={artwork.image}
-            alt={artwork.title}
+            alt={localized.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
@@ -150,7 +151,7 @@ function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
         {/* Title on hover */}
         <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
           <p className="text-primary-foreground text-xs md:text-sm font-medium text-center truncate">
-            {artwork.title}
+            {localized.title}
           </p>
         </div>
       </motion.div>
@@ -158,7 +159,7 @@ function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
       {/* Caption below image */}
       <div className="mt-3 text-center">
         <h3 className="font-serif text-sm md:text-base text-foreground truncate">
-          {artwork.title}
+          {localized.title}
         </h3>
         <p className="text-xs text-muted-foreground mt-1">
           {artwork.year}

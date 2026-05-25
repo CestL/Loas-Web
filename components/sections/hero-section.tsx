@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/translations";
+
+// Hero background asset (public/artworks/Backgroundphoto.JPEG — hero backdrop)
+const HERO_BACKGROUND_IMAGE = "/artworks/Backgroundphoto.JPEG";
 
 interface HeroSectionProps {
   onExploreClick: () => void;
@@ -15,8 +19,17 @@ export function HeroSection({ onExploreClick }: HeroSectionProps) {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Soft gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30" />
+        {/* Added hero background image overlay — soft cinematic backdrop on desktop and mobile */}
+        <Image
+          src={HERO_BACKGROUND_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-[1.3] scale-105 blur-[1px]"
+        />
+        {/* Soft gradient overlay — preserves logo and hero text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-muted/50" />
         
         {/* Decorative circles */}
         <motion.div

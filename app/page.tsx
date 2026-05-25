@@ -82,6 +82,15 @@ export default function HomePage() {
     }
   }, []);
 
+  const scrollToHome = useCallback(() => {
+    setSelectedArtwork(null);
+    document.body.style.overflow = "";
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   // Handle "View in Gallery" - close modal and scroll to gallery
   const handleViewInGallery = useCallback(() => {
     // Close the modal first
@@ -98,7 +107,7 @@ export default function HomePage() {
     <LanguageProvider>
       <main className="min-h-screen bg-background">
         {/* Navigation */}
-        <Navigation />
+        <Navigation onNavigateHome={scrollToHome} />
 
         {/* Hero Section */}
         <section id="home">

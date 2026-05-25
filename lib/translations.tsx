@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
+import type { Artwork } from "@/data/artworks";
+import { getLocalizedArtwork, type LocalizedArtwork } from "@/lib/artwork-i18n";
 
 export type Language = "es" | "en";
 
@@ -28,6 +30,7 @@ interface Translations {
     title: string;
     all: string;
     noArtworks: string;
+    eras: Record<string, string>;
   };
   // Artwork Detail
   detail: {
@@ -38,6 +41,7 @@ interface Translations {
     period: string;
     currentStatus: string;
     readMore: string;
+    readLess: string;
     viewInGallery: string;
     previous: string;
     next: string;
@@ -79,6 +83,13 @@ const translations: Record<Language, Translations> = {
       title: "GALERÍA",
       all: "Todo",
       noArtworks: "No se encontraron obras para esta época.",
+      eras: {
+        Asiático: "Asiático",
+        Floral: "Floral",
+        Retrato: "Retrato",
+        Talleres: "Talleres",
+        Valdivia: "Valdivia",
+      },
     },
     detail: {
       when: "Año",
@@ -88,6 +99,7 @@ const translations: Record<Language, Translations> = {
       period: "Período",
       currentStatus: "Ubicación Actual",
       readMore: "LEER MÁS",
+      readLess: "LEER MENOS",
       viewInGallery: "Ver en Galería",
       previous: "Anterior",
       next: "Siguiente",
@@ -127,6 +139,13 @@ const translations: Record<Language, Translations> = {
       title: "GALLERY",
       all: "All",
       noArtworks: "No artworks found for this era.",
+      eras: {
+        Asiático: "Asian",
+        Floral: "Floral",
+        Retrato: "Portrait",
+        Talleres: "Workshops",
+        Valdivia: "Valdivia",
+      },
     },
     detail: {
       when: "When",
@@ -136,6 +155,7 @@ const translations: Record<Language, Translations> = {
       period: "Period",
       currentStatus: "Current Status",
       readMore: "READ MORE",
+      readLess: "READ LESS",
       viewInGallery: "View in Gallery",
       previous: "Previous",
       next: "Next",
@@ -162,6 +182,7 @@ interface LanguageContextType {
   t: Translations;
   setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
+  getArtwork: (artwork: Artwork) => LocalizedArtwork;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -179,8 +200,19 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const t = translations[language];
 
+  const getArtwork = useCallback(
+    (artwork: Artwork) => {
+      const eraLabel = (era: string) => {
+        if (!era) return "";
+        return t.gallery.eras[era] ?? era;
+      };
+      return getLocalizedArtwork(artwork, language, eraLabel);
+    },
+    [language, t]
+  );
+
   return (
-    <LanguageContext.Provider value={{ language, t, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, t, setLanguage, toggleLanguage, getArtwork }}>
       {children}
     </LanguageContext.Provider>
   );

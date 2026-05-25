@@ -27,7 +27,7 @@ export function FeaturedArtworks({ artworks, onArtworkClick }: FeaturedArtworksP
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   // Only show first 5 artworks for featured section
-  const featuredArtworks = artworks.slice(0, 5);
+  const featuredArtworks = artworks.slice(0, 10);
 
   const updateScrollButtons = useCallback(() => {
     if (scrollRef.current) {
@@ -116,7 +116,8 @@ interface FeaturedCardProps {
 
 function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
   const [imageError, setImageError] = useState(false);
-  const { t } = useLanguage();
+  const { t, getArtwork } = useLanguage();
+  const localized = getArtwork(artwork);
 
   return (
     <motion.article
@@ -143,7 +144,7 @@ function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
             {!imageError ? (
               <Image
                 src={artwork.image}
-                alt={artwork.title}
+                alt={localized.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 256px, 288px"
@@ -161,7 +162,7 @@ function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
             {/* Era badge */}
             <div className="absolute top-4 left-4">
               <span className="px-3 py-1 text-xs bg-background/80 backdrop-blur-sm rounded-full text-foreground">
-                {artwork.era}
+                {localized.era}
               </span>
             </div>
           </div>
@@ -169,10 +170,10 @@ function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
           {/* Info */}
           <div className="p-5">
             <h3 className="font-serif text-lg text-foreground mb-1 truncate group-hover:text-primary transition-colors">
-              {artwork.title}
+              {localized.title}
             </h3>
             <p className="text-sm text-muted-foreground truncate">
-              {artwork.artist}
+              {localized.artist}
             </p>
           </div>
         </div>

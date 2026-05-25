@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Instagram, Twitter, Mail } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { useLanguage } from "@/lib/translations";
 
 export function Footer() {
@@ -26,7 +26,7 @@ export function Footer() {
             <span className="font-serif text-xl text-foreground">LoArt</span>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Instagram Only */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,22 +35,12 @@ export function Footer() {
             className="flex items-center gap-4"
           >
             <Link
-              href="#"
+              href="https://www.instagram.com/ligiamercededbi?igsh=ZmpzbjhndzVncmF2"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
             >
               <Instagram className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
-            >
-              <Twitter className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
-            >
-              <Mail className="w-4 h-4" />
             </Link>
           </motion.div>
 

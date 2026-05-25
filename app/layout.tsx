@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     "Romanticism",
     "Dutch Golden Age",
   ],
-  generator: "v0.app",
   icons: {
     icon: [
       {

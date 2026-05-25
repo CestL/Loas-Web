@@ -3,16 +3,30 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { useLanguage } from "@/lib/translations";
 
 interface NavigationProps {
   currentSection?: "home" | "gallery" | "about";
+  onNavigateHome?: () => void;
 }
 
-export function Navigation({ currentSection = "home" }: NavigationProps) {
+export function Navigation({ currentSection = "home", onNavigateHome }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
+
+  const handleNavigateHome = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    if (onNavigateHome) {
+      onNavigateHome();
+      return;
+    }
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -27,7 +41,8 @@ export function Navigation({ currentSection = "home" }: NavigationProps) {
           {/* Left - Home Link */}
           <Link
             href="#home"
-            className={`font-serif text-sm md:text-base tracking-widest transition-colors ${
+            onClick={handleNavigateHome}
+            className={`hidden md:inline font-serif text-sm md:text-base tracking-widest transition-colors ${
               currentSection === "home"
                 ? "text-foreground"
                 : "text-muted-foreground hover:text-foreground"
@@ -37,7 +52,7 @@ export function Navigation({ currentSection = "home" }: NavigationProps) {
           </Link>
 
           {/* Center - Logo */}
-          <Link href="#home" className="absolute left-1/2 -translate-x-1/2">
+          <Link href="#home" onClick={handleNavigateHome} className="absolute left-1/2 -translate-x-1/2">
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-primary/30 flex items-center justify-center bg-background/80 backdrop-blur-sm">
               <span className="font-serif text-lg md:text-xl text-primary">L</span>
             </div>
@@ -95,7 +110,7 @@ export function Navigation({ currentSection = "home" }: NavigationProps) {
             <nav className="flex flex-col items-center gap-8">
               <Link
                 href="#home"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleNavigateHome}
                 className="font-serif text-2xl tracking-widest text-foreground hover:text-primary transition-colors"
               >
                 {t.nav.home}
