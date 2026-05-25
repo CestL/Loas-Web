@@ -288,12 +288,12 @@ export const artworks: Artwork[] = [
 
   {
     id: "Taekwondo",
-    title: "Taekwondo",
+    title: "LuiFer",
     artist: "LOA",
     year: 2025,
     location: "Valdivia, Chile",
     materials: "Acrilico sobre Madera",
-    description: "Esta pintura acrílica sobre madera presenta una composición tripartita que captura diferentes facetas del arte marcial, La figura frontal, de pie y con los brazos colgando, transmite calma, autoridad o meditación. El fondo oscuro y texturizado crea un efecto de halo o energía concentrada, destacando su importancia dentro de la triada. Es el eje compositivo y simbólico.",
+    description: "Esta pintura acrílica sobre madera presenta una composición tripartita que captura diferentes facetas del arte marcial, La figura frontal, de pie y con los brazos colgando, transmite calma, autoridad o meditación. El fondo oscuro y texturizado crea un efecto de halo o energía concentrada, destacando su importancia dentro de la triada. Es el eje compositivo y simbólico.\n\n Este cuadro lo hizo la artista para un niño llamado Luis Fernando al que le tiene mucho cariño",
     image: "/artworks/Taekwondo.jpg",
     era: "Retrato"
   },
