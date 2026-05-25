@@ -71,7 +71,7 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       subtitle1: "Museo Virtual de",
-      subtitle2: "Pintura Clásica de Ligia Borett",
+      subtitle2: "Pintura de Ligia Borett",
       cta: "Explorar Galería",
       scroll: "Deslizar",
     },
@@ -127,7 +127,7 @@ const translations: Record<Language, Translations> = {
     },
     hero: {
       subtitle1: "Virtual Museum For",
-      subtitle2: "Ligia Borett Classical Art Paintings",
+      subtitle2: "Ligia Borett Art Paintings",
       cta: "Explore Gallery",
       scroll: "Scroll",
     },
