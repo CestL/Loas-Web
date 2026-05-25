@@ -6,6 +6,7 @@ import { X, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { type Artwork } from "@/data/artworks";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/lib/translations";
+import { getArtworkImageSrcFromArtwork } from "@/lib/artwork-image";
 
 // Limited description2 preview to 300 characters before "Leer más" expands full text
 const DESCRIPTION_PREVIEW_LENGTH = 300;
@@ -126,7 +127,7 @@ export function ArtworkDetail({
         aria-label={localized.title}
       >
         <Image
-          src={artwork.image}
+          src={getArtworkImageSrcFromArtwork(artwork)}
           alt={localized.title}
           width={900}
           height={1200}
@@ -286,13 +287,12 @@ export function ArtworkDetail({
               className="relative w-full h-full flex items-center justify-center"
             >
               <Image
-                src={artwork.image}
+                src={getArtworkImageSrcFromArtwork(artwork)}
                 alt={localized.title}
                 width={1200}
                 height={1600}
                 className="max-h-[92vh] max-w-[92vw] w-auto h-auto object-contain rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
                 sizes="100vw"
-                priority
               />
             </motion.div>
           </motion.div>

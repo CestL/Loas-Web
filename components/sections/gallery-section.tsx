@@ -1,11 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, memo } from "react";
 import Image from "next/image";
 import { type Artwork, type Era, eras } from "@/data/artworks";
 import { SlidersHorizontal } from "lucide-react";
 import { useLanguage } from "@/lib/translations";
+import { getArtworkImageSrcFromArtwork } from "@/lib/artwork-image";
 
 interface GallerySectionProps {
   artworks: Artwork[];
@@ -107,7 +108,8 @@ interface ArtworkCardProps {
   onClick: () => void;
 }
 
-function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
+// Optimized gallery lazy loading — memo avoids rerenders when filters change
+const ArtworkCard = memo(function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
   const [imageError, setImageError] = useState(false);
   const { t, getArtwork } = useLanguage();
   const localized = getArtwork(artwork);
@@ -130,9 +132,11 @@ function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
         {/* Image */}
         {!imageError ? (
           <Image
-            src={artwork.image}
+            src={getArtworkImageSrcFromArtwork(artwork)}
             alt={localized.title}
             fill
+            loading="lazy"
+            fetchPriority="low"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             onError={() => setImageError(true)}
@@ -167,4 +171,4 @@ function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
       </div>
     </motion.article>
   );
-}
+});

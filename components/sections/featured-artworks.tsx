@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, memo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { type Artwork } from "@/data/artworks";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/translations";
+import { getArtworkImageSrcFromArtwork } from "@/lib/artwork-image";
 
 interface FeaturedArtworksProps {
   artworks: Artwork[];
@@ -114,7 +115,7 @@ interface FeaturedCardProps {
   onClick: () => void;
 }
 
-function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
+const FeaturedCard = memo(function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
   const [imageError, setImageError] = useState(false);
   const { t, getArtwork } = useLanguage();
   const localized = getArtwork(artwork);
@@ -143,9 +144,11 @@ function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
           <div className="relative aspect-[3/4] overflow-hidden">
             {!imageError ? (
               <Image
-                src={artwork.image}
+                src={getArtworkImageSrcFromArtwork(artwork)}
                 alt={localized.title}
                 fill
+                loading="lazy"
+                fetchPriority="low"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 256px, 288px"
                 onError={() => setImageError(true)}
@@ -180,4 +183,4 @@ function FeaturedCard({ artwork, index, onClick }: FeaturedCardProps) {
       </motion.div>
     </motion.article>
   );
-}
+});

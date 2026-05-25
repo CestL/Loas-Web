@@ -4,7 +4,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // Optimized gallery image loading — Next.js serves WebP/AVIF in production
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",

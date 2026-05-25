@@ -65,7 +65,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Óleo sobre Madera",
     description: "Una de las primeras exploraciones de la artista en la pintura al óleo y su primer cuadro floral dentro de su trayectoria. Esta obra, realizada en 2018 como su cuarta pintura, representa el inicio de una conexión artística con la naturaleza, la textura y la sensibilidad de las flores. A través de pinceladas expresivas y orgánicas, las flores blancas emergen delicadamente sobre un fondo oscuro, creando un contraste íntimo y elegante que refleja el descubrimiento de una identidad artística en formación.",
-    image: "/artworks/Camelia Blanca.png",
+    image: "/artworks/Camelia Blanca.PNG", // Corrected case-sensitive image path for production
     era: "Floral"
   },
 
@@ -77,7 +77,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Óleo sobre Madera",
     description: "Una obra vibrante donde el color se convierte en emoción. Los intensos tonos naranjas, dorados y magentas envuelven el paisaje en una atmósfera cálida y contemplativa, evocando la calma de un atardecer que transforma la naturaleza en luz. El reflejo del sol sobre el agua guía la mirada hacia el centro de la composición, mientras la figura blanca del cisne aporta serenidad y equilibrio entre la intensidad cromática del entorno. Pintada sobre madera, la textura natural de la superficie se integra con las pinceladas visibles del óleo, entregando profundidad y carácter a la escena.\n\nLa obra transmite un momento de quietud y conexión con la naturaleza, donde el cielo parece teñir la tierra con sus últimos colores del día.",
-    image: "/artworks/El Cielo que Pinta la Tierra.jpg",
+    image: "/artworks/El cielo que pinta la tierra.jpg", // Corrected case-sensitive image path for production
     era: ""
   },
 
@@ -246,7 +246,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Acrilico sobre Lienzo",
     description: "Esta obra es una vista del paisaje vibrante y atmosférico del Santuario de la Naturaleza Carlos Anwandter, perspectiva desde el mirador en la Isla Teja en Valdivia, Chile. La pintura transmite la serenidad y la riqueza ecológica de este entorno natural protegido, conocido por sus humedales, aves nativas y paisajes fluviales. A través de una técnica suelta y una paleta vibrante, el artista invita al espectador a sumergirse en la escena y a sentir la paz y la belleza del humedal valdiviano. La obra no solo representa un lugar, sino que evoca emociones de conexión con la naturaleza, conciencia ambiental y aprecio por la biodiversidad local.",
-    image: "/artworks/Detras de la isla teja.jpg",
+    image: "/artworks/Detras de la isla teja.JPG", // Corrected case-sensitive image path for production
     era: "Valdivia"
   },
 
@@ -258,7 +258,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Acrilico sobre Madera",
     description: "Esta notable pintura de la artista LOA representa una inmersión profunda en la riqueza botánica y la atmósfera mística del sur de Chile, específicamente de la Selva Valdiviana. Dentro de su producción paisajística, esta obra destaca por su complejidad técnica, alejándose temporalmente de las estructuras de horizontes limpios para envolver al espectador en la densidad y el follaje característicos de este ecosistema único en el mundo.\n\n En la base de la composición, una curva pronunciada de un sendero peatonal o camino de tierra en tonos beige, ocre y sutiles rosados cruza desde la esquina inferior izquierda hacia el lateral derecho. El camino está ejecutado con un empaste denso y rugoso que simula fielmente la textura del suelo forestal.",
-    image: "/artworks/Selva Valdiviana.png",
+    image: "/artworks/Selva Valdiviana.PNG", // Corrected case-sensitive image path for production
     era: "Valdivia"
   },
   // ===== Retrato ARTWORKS =====
@@ -306,7 +306,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Acrilico sobre Lienzo",
     description: "Esta obra es un retrato íntimo y vibrante que captura la esencia de Verónica, la nieta del artista, mediante un uso audaz del color y una composición que evoca la tradición japonesa. La pintura trasciende la simple representación para convertirse en una obra de carácter simbólico y emocional.\n\nEl centro de la composición es una figura femenina joven, identificada como Verónica. Lleva un vestuario tradicional de estilo japonés, Un kimono o yukata de color amarillo con un estampado floral sutil, y un obi (cinturón) rojo ancho. Sostiene una sombrilla roja sobre su cabeza.",
-    image: "/artworks/Coco.jpeg",
+    image: "/artworks/Coco.JPEG", // Corrected case-sensitive image path for production
     era: "Retrato"
   },
 
@@ -438,7 +438,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Acrilico sobre Lienzo",
     description: "Una ventana abierta de un azul intenso revela un paisaje costero sereno, bañado por la luz del Mediterráneo. Sobre el alféizar, una maceta con flores rosas y un cerezo en flor enmarcan la vista, invitando al espectador a trascender el umbral y sumergirse en la calma del horizonte. Pintura realizada por estudiante en talleres de LOA.",
-    image: "/artworks/Bloom.jpeg",
+    image: "/artworks/Bloom.JPEG", // Corrected case-sensitive image path for production
     era: "Talleres"
   },
 
@@ -594,7 +594,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Óleo sobre Madera",
     description: "Esta pintura de Camelias rosas es una obra maestra de la técnica y la expresión. El uso del óleo permite una riqueza de color y textura que es fundamental para transmitir la belleza de las flores. El hecho de que sea parte de una serie con una obra gemela de flores blancas y otra de flores Amarillas eleva su significado, transformándola de un simple bodegón a una exploración artística de la luz, el color y la emoción. Juntas, las Tres obras ofrecen una experiencia visual completa y profunda, invitando al espectador a reflexionar sobre la diversidad y la belleza de la naturaleza.",
-    image: "/artworks/Camelia Rosa.png",
+    image: "/artworks/Camelia Rosa.PNG", // Corrected case-sensitive image path for production
     era: "Floral"
   },
 
@@ -631,7 +631,7 @@ export const artworks: Artwork[] = [
     location: "Santiago, Chile",
     materials: "Acrilico con Hilos sobre Lienzo",
     description: "Interpretación pictórica vibrante y expresiva del Cerro San Cristóbal en Santiago de Chile, capturando la esencia del paisaje urbano y natural que caracteriza a esta emblemática colina. es una obra de gran expresividad y colorido, que logra capturar la esencia del paisaje urbano y natural de Santiago. A través de una técnica suelta y una paleta vibrante, el artista invita al espectador a compartir una mirada contemplativa sobre este emblemático lugar. No solo representa un paisaje, sino que evoca emociones de pertenencia, nostalgia y alegría, convirtiéndose en un tributo a la identidad local y a la belleza de la ciudad.",
-    image: "/artworks/Cerro San Cristobal.jpeg",
+    image: "/artworks/Cerro San Cristobal.JPEG", // Corrected case-sensitive image path for production
     era: ""
   },
 
