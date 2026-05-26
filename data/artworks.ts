@@ -145,7 +145,7 @@ export const artworks: Artwork[] = [
     id: "Santuario de la Naturaleza",
     title: "Santuario de la Naturaleza",
     artist: "LOA",
-    year: 2018,
+    year: 2019,
     location: "Valdivia, Chile",
     materials: "Óleo sobre Lienzo",
     description: "Esta obra retrata uno de los símbolos naturales más reconocidos de Valdivia: los cisnes de cuello negro que habitan el Santuario de la Naturaleza del Río Cruces. La escena se desarrolla entre extensos humedales y totorales que rodean un tranquilo espejo de agua, donde una familia de cisnes avanza serenamente por el paisaje.\n\nLos tonos azules del agua contrastan con los dorados y ocres de la vegetación acuática, creando una atmósfera luminosa y armoniosa. La composición transmite una sensación de calma y equilibrio, destacando la estrecha relación entre la fauna y los ecosistemas que caracterizan los humedales valdivianos.\n\nLa pintura se construye a partir de una composición envolvente donde la vegetación ocupa gran parte del espacio visual, generando un marco natural que dirige la atención hacia los cisnes. El agua funciona como un corredor visual que atraviesa la obra y aporta profundidad a la escena.\n\nSantuario de la Naturaleza forma parte de la colección Valdivia, una serie dedicada a retratar los paisajes y ecosistemas que definen la identidad de la ciudad y sus alrededores. La obra captura la serenidad de los humedales del Río Cruces, donde los característicos cisnes de cuello negro conviven con la vegetación acuática que ha dado fama internacional a este santuario. A través de una paleta luminosa y una pincelada expresiva, la pintura invita a contemplar la riqueza ecológica y la belleza silenciosa de uno de los espacios naturales más valiosos del sur de Chile.",
@@ -583,7 +583,7 @@ export const artworks: Artwork[] = [
     location: "Valdivia, Chile",
     materials: "Óleo sobre Madera",
     description: "",
-    image: "/artworks/Agujero Negro.jpg",
+    image: "/artworks/Agujero negro.jpg",
     era: "Talleres"
   },
 
@@ -636,6 +636,18 @@ export const artworks: Artwork[] = [
   },
 
   {
+    id: "Jarron",
+    title: "Jarron",
+    artist: "LOA",
+    year: 2025,
+    location: "Valdivia, Chile",
+    materials: "Acrilico sobre Madera",
+    description: "",
+    image: "/artworks/Jarron.JPEG",
+    era: "Talleres"
+  },
+
+  {
     id: "Taller Infantil 1",
     title: "Taller Infantil 1",
     artist: "Olivia",
@@ -670,6 +682,8 @@ export const artworks: Artwork[] = [
     image: "/artworks/Taller Infantil 3.jpg",
     era: "Talleres"
   },
+
+  
   // ===== Floral ARTWORKS =====
   {
     id: "Camelia Rosa",
@@ -707,17 +721,6 @@ export const artworks: Artwork[] = [
     era: "Floral"
   },
 
-  {
-    id: "Jarron",
-    title: "Jarron",
-    artist: "LOA",
-    year: 2025,
-    location: "Valdivia, Chile",
-    materials: "Acrilico sobre Madera",
-    description: "",
-    image: "/artworks/Jarron.JPEG",
-    era: "Talleres"
-  },
   
   // ===== No categorias ARTWORKS =====
   {
